@@ -136,22 +136,38 @@ Before starting, ensure you have:
 
 ## 🔐 Environment Setup
 
-Create `backend/.env` with the following:
+A `.env.example` template file is included in `backend/` with all required variables and instructions.
+
+### Step 1 — Copy the template
+
+```bash
+cd backend
+cp .env.example .env
+```
+
+On Windows:
+```bash
+copy .env.example .env
+```
+
+### Step 2 — Fill in your values
+
+Open `backend/.env` and replace the placeholder values:
 
 ```env
 # Neon PostgreSQL connection string
-NEON_DATABASE_URL=postgresql://your_user:your_password@your_host/your_db?sslmode=require
+NEON_DATABASE_URL=postgresql://your_user:your_password@your_host.neon.tech/your_db?sslmode=require
 
 # Google Gemini API Key
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-> ⚠️ **Never commit `.env` to version control.** It contains sensitive credentials.
+> ⚠️ **Never commit `.env` to version control.** It is already listed in `.gitignore`. Only `.env.example` (with placeholder values) is committed.
 
 ### Getting your Gemini API Key
 1. Go to [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 2. Click **Create API Key**
-3. Copy and paste into `.env`
+3. Copy and paste into `backend/.env` as `GEMINI_API_KEY`
 
 > **Free tier limit:** 20 requests/day for Gemini 2.5 Flash. Quota resets at midnight Pacific Time. Upgrade at [https://ai.google.dev](https://ai.google.dev) for unlimited requests.
 
@@ -159,7 +175,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 1. Sign up at [https://neon.tech](https://neon.tech)
 2. Create a new project
 3. Go to **Connection Details** → copy the **Connection string**
-4. Paste into `.env` as `NEON_DATABASE_URL`
+4. Paste into `backend/.env` as `NEON_DATABASE_URL`
 
 ---
 

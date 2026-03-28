@@ -4,6 +4,7 @@ backend/__pycache__/
 backend/**/__pycache__/
 backend/**/*.pyc
 backend/.env
+# .env.example is intentionally committed as a template
 
 # Node
 frontend/node_modules/
